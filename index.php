@@ -9,7 +9,12 @@ $todos = $query->selectAll('todos','Todos');
 
 $uri = trim($_SERVER['REQUEST_URI'], '/');
 
-Router::load('routes.php')->direct($uri);
+$router = new Router();
 
-require  'routes.php';
+require 'routes.php';
 
+//Router::load('routes.php')->direct($uri);
+
+//require  'routes.php';
+
+require $router->direct(trim($_SERVER['REQUEST_URI'],'/'));

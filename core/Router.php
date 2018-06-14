@@ -12,8 +12,9 @@ class Router
 
     public static function load($file)
     {
+        $router = new self;
         require $file;
-        return new self;
+        return $router;
     }
 
     public function define($routes)
