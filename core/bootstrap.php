@@ -1,16 +1,10 @@
 <?php
 
+
 $app = [];
 
+App::bind('config', require 'config.php');
 
-$app['config'] = require 'config.php';
-$config = require 'config.php';
+App::bind('database', new QueryBuilder(Connection::make(App::get('config')['database'])));
 
-require 'Router.php';
-require_once 'Todos.php';
-require_once 'database/Connection.php';
-require_once 'database/QueryBuilder.php';
-require_once 'Request.php';
-
-return
-    $app['database'] = new QueryBuilder(Connection::make($app['config']['database']));
+return App::get('database');

@@ -8,12 +8,23 @@
     <title>Document</title>
 </head>
 <body>
-    <?php include 'header.php' ?>
-    <form method="GET" action="">
-        <input type="text" name="name">
-        <button>Save</button>
-    </form>
+<?php include 'header.php' ?>
 
-    <?php include 'footer.php' ?>
+<ul>
+    <?php foreach ($todos as $todo): ?>
+    <li>
+        <?= $todo->description ?>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+
+<form method="POST" action="/todos/create">
+    <input type="text" name="name">
+    <input type="text" name="description">
+    <button>Save</button>
+</form>
+
+<?php include 'footer.php' ?>
 </body>
 </html>
