@@ -11,4 +11,4 @@
 //
 //}
 
-require './views/about.php';
+require './views/index.php';
