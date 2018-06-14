@@ -12,7 +12,7 @@ class Router
 
     public static function load($file)
     {
-        $router = new self;
+        $router = new static;
         require $file;
         return $router;
     }
